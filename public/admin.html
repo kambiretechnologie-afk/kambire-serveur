@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administration — KAMBIRE INFORMATIQUE</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="admin-body">
+<div id="app"></div>
+
+<!-- Product modal -->
+<div class="modal" id="pModal">
+  <div class="modal-card">
+    <h3><span id="modalTitle">Ajouter un produit</span><button class="drawer-close" onclick="closeModal()">&times;</button></h3>
+    <input type="hidden" id="m_id">
+    <div class="field"><label>Nom du produit *</label><input id="m_name"></div>
+    <div class="form-row">
+      <div class="field"><label>Catégorie</label><select id="m_cat"></select></div>
+      <div class="field"><label>Marque</label><input id="m_brand"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Prix (FCFA) *</label><input id="m_price" type="number"></div>
+      <div class="field"><label>Ancien prix (promo)</label><input id="m_old" type="number"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Processeur</label><select id="m_cpu"><option value="-">—</option><option>i5</option><option>i7</option></select></div>
+      <div class="field"><label>Génération</label><select id="m_gen"><option>-</option><option>8e</option><option>9e</option><option>10e</option><option>11e</option><option>12e</option><option>13e</option></select></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>RAM (Go)</label><input id="m_ram" type="number" value="0"></div>
+      <div class="field"><label>SSD (Go)</label><input id="m_ssd" type="number" value="0"></div>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Stock (quantité)</label><input id="m_stock" type="number" value="0"></div>
+      <div class="field"><label>Seuil d'alerte stock faible</label><input id="m_low" type="number" value="3"></div>
+    </div>
+    <div class="field">
+      <label>Images du produit (4 max)</label>
+      <div class="gallery-picker-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:6px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;gap:8px;align-items:center">
+            <input id="m_gallery_1" placeholder="Image 1" style="flex:1">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('m_file_1').click()"><i class="fa-solid fa-image"></i></button>
+          </div>
+          <input type="file" id="m_file_1" accept="image/*" hidden>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;gap:8px;align-items:center">
+            <input id="m_gallery_2" placeholder="Image 2" style="flex:1">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('m_file_2').click()"><i class="fa-solid fa-image"></i></button>
+          </div>
+          <input type="file" id="m_file_2" accept="image/*" hidden>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;gap:8px;align-items:center">
+            <input id="m_gallery_3" placeholder="Image 3" style="flex:1">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('m_file_3').click()"><i class="fa-solid fa-image"></i></button>
+          </div>
+          <input type="file" id="m_file_3" accept="image/*" hidden>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;gap:8px;align-items:center">
+            <input id="m_gallery_4" placeholder="Image 4" style="flex:1">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('m_file_4').click()"><i class="fa-solid fa-image"></i></button>
+          </div>
+          <input type="file" id="m_file_4" accept="image/*" hidden>
+        </div>
+      </div>
+      <input id="m_img" type="hidden">
+    </div>
+    <div class="field"><label>Description</label><textarea id="m_desc" rows="3"></textarea></div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:16px">
+      <label class="chk"><input type="checkbox" id="m_dispo" checked> Disponible</label>
+      <label class="chk"><input type="checkbox" id="m_promo"> En promotion</label>
+      <label class="chk"><input type="checkbox" id="m_neuf"> Nouveauté</label>
+      <label class="chk"><input type="checkbox" id="m_tactile"> Tactile</label>
+    </div>
+    <button class="btn btn-primary btn-block" onclick="saveProduct()"><i class="fa-solid fa-floppy-disk"></i> Enregistrer</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

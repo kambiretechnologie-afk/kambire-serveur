@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suivre ma commande — KAMBIRE INFORMATIQUE</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Accueil</a> / <span>Suivre ma commande</span></div>
+    <h1>Suivre ma commande</h1>
+    <p style="color:var(--gray);max-width:620px">Saisissez votre numéro de commande et le téléphone utilisé lors de l'achat pour connaître l'état de votre commande.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:34px">
+  <div class="container">
+    <div class="track-wrap">
+      <div class="co-card">
+        <h3><i class="fa-solid fa-magnifying-glass-location"></i> Rechercher ma commande</h3>
+        <form onsubmit="return doTrack(event)">
+          <div class="field"><label>Numéro de commande *</label><input id="t_ref" placeholder="Ex : KB12345678" autocomplete="off"></div>
+          <div class="field"><label>Téléphone de la commande *</label><input id="t_phone" placeholder="07 00 00 00 00" autocomplete="off"></div>
+          <button class="btn btn-primary btn-block"><i class="fa-solid fa-truck-fast"></i> Suivre ma commande</button>
+        </form>
+        <p style="color:var(--gray);font-size:13px;margin-top:14px"><i class="fa-solid fa-circle-info"></i> Le numéro de commande vous a été communiqué après validation (il commence par « KB »).</p>
+      </div>
+      <div id="trackResult"></div>
+      <a href="index.html" class="btn btn-ghost btn-block" style="margin-top:6px"><i class="fa-solid fa-house"></i> Retour à l'accueil</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/suivi.js"></script>
+</body>
+</html>
